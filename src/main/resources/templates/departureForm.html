@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vyhledání odletů</title>
+    <style>
+        body {
+            background-image: url('/images/departure.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/departure.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(10px);
+            z-index: -1;
+        }
+
+        form {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5); /* Polopriehľadné pozadie */
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            color: black;
+            font-weight: bold;
+        }
+
+        label, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid rgba(0, 51, 102, 0.7);
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background: rgba(0, 115, 230, 0.7);
+            backdrop-filter: blur(8px);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: rgba(0, 91, 181, 0.8);
+        }
+
+    </style>
+</head>
+<body>
+<h1 style="text-align: center;">Vyhledání odletů</h1>
+<form action="/departures" method="get">
+    <label for="airport">Letiště:</label>
+    <input type="text" id="airport" name="airport" required>
+
+    <label for="begin">Začátek:</label>
+    <input type="datetime-local" id="begin" name="begin" required>
+
+    <label for="end">Konec:</label>
+    <input type="datetime-local" id="end" name="end" required>
+
+    <button type="submit">Zobrazit odlety</button>
+</form>
+</body>
+</html>
