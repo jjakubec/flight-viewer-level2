@@ -69,9 +69,7 @@ public class DepartureApi {
                 String.valueOf(begin.atZone(ZoneId.of("Europe/Prague")).toEpochSecond()),
                 String.valueOf(end.atZone(ZoneId.of("Europe/Prague")).toEpochSecond())
         );
-
-        model.addAttribute("departures", Objects.requireNonNull(departures.block()));
-
+        // Add attributes to the model for rendering in the Thymeleaf template
         model.addAttribute("departures", Objects.requireNonNull(departures.block()));
         model.addAttribute("airportName", airport);
         model.addAttribute("beginTime", begin.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
