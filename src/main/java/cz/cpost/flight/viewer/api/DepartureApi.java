@@ -52,7 +52,7 @@ public class DepartureApi {
         }
 
 
-        // Pomalejší varianta
+        // Slower variant
         /*List<Departure> departures = departureService.getDepartures(
                 airport,
                 String.valueOf(begin.atZone(ZoneId.of("Europe/Prague")).toEpochSecond()),
@@ -63,7 +63,7 @@ public class DepartureApi {
 
         return "departures";*/
 
-        // Rychlejší varianta
+        // Faster variant
         Mono<List<Departure>> departures = departureService.getDepartures(
                 airport,
                 String.valueOf(begin.atZone(ZoneId.of("Europe/Prague")).toEpochSecond()),
